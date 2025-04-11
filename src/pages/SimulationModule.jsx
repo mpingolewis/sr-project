@@ -20,6 +20,7 @@ const SimulationModule = () => {
         </ul>
         <Link to="/home" className="btn">Back to Home</Link>
       </section>
+      <Link to="/home" className="btn">Back to Home</Link> {/* Added link */}
     </div>
   );
 };

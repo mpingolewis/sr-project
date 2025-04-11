@@ -1,122 +1,177 @@
 import React, { useState } from 'react';
-import './Phishing.css';
+import styled from 'styled-components';
 
-const PhishingSimulation = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [virusSpread, setVirusSpread] = useState(false);
-    const [infectedEmployees, setInfectedEmployees] = useState([]);
-    const [decisionMade, setDecisionMade] = useState(false);
-    const [consequences, setConsequences] = useState('');
-    const [selectedEmployee, setSelectedEmployee] = useState(null);
+// Styled components
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        localStorage.setItem('victimEmail', email);
-        localStorage.setItem('victimPassword', password);
-        alert('You have fallen for a phishing attack!');
-        setVirusSpread(true);
-        setInfectedEmployees([1]); // Start with Employee 1 infected
-    };
+const ModalContent = styled.div`
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+`;
 
-    const handleEmployeeClick = (employee) => {
-        setSelectedEmployee(employee);
-        if (!infectedEmployees.includes(employee)) {
-            setInfectedEmployees([...infectedEmployees, employee]);
-        }
-    };
+const Container = styled.div`
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+`;
 
-    const handleDecision = (decision) => {
-        setDecisionMade(true);
-        if (decision === 'isolate') {
-            setConsequences('You isolated the infected systems. The virus spread is contained.');
-        } else if (decision === 'notify') {
-            setConsequences('You notified IT. They are working to mitigate the virus spread.');
-        } else {
-            setConsequences('No action taken. The virus continues to spread.');
-            setInfectedEmployees([1, 2, 3, 4]); // Simulate further spread
-        }
-    };
+const EmailBox = styled.div`
+  padding: 1rem;
+  background-color: #000;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #fff;
+`;
 
-    return (
-        <div className="simulation-container">
-            <h1>Login to Your Account</h1>
-            <p>Please enter your credentials to continue.</p>
+const AlertBox = styled.div`
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: ${props => (props.type === 'error' ? '#00000' : '000000')};
+  border: 1px solid ${props => (props.type === 'error' ? '#ff9999' : '#99ff99')};
+  border-radius: 4px;
+`;
 
-            <div className="form-container">
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email"
-                        required
-                        className="input-field"
-                    /><br />
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Enter your password"
-                        required
-                        className="input-field"
-                    /><br />
-                    <button type="submit" className="submit-button">
-                        Login
-                    </button>
-                </form>
-            </div>
+const Button = styled.button`
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+`;
 
-            {virusSpread && (
-                <div className="virus-spread-container">
-                    <h2>Virus Spread Simulation</h2>
-                    <p>The virus is spreading through the company...</p>
-                    <div className="network-diagram">
-                        {[1, 2, 3, 4].map((employee) => (
-                            <div
-                                key={employee}
-                                className={`employee ${infectedEmployees.includes(employee) ? 'infected' : ''}`}
-                                onClick={() => handleEmployeeClick(employee)}
-                            >
-                                {selectedEmployee !== employee && `Employee ${employee}`}
-                                {selectedEmployee === employee && (
-                                    <p>
-                                        {employee === 1 && "Employee 1's computer is infected, leading to loss of sensitive data and potential identity theft."}
-                                        {employee === 2 && "Employee 2's computer is infected, causing disruption in their workflow and spreading the virus to other systems."}
-                                        {employee === 3 && "Employee 3's computer is infected, leading to unauthorized access to confidential company information."}
-                                        {employee === 4 && "Employee 4's computer is infected, resulting in financial loss and damage to the company's reputation."}
-                                    </p>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                    {selectedEmployee && !decisionMade && (
-                        <div className="decision-points">
-                            <h3>Decision Points</h3>
-                            <p>Choose an action to mitigate the virus spread:</p>
-                            <button onClick={() => handleDecision('isolate')} className="decision-button">Isolate Infected Systems</button>
-                            <button onClick={() => handleDecision('notify')} className="decision-button">Notify IT</button>
-                            <button onClick={() => handleDecision('none')} className="decision-button">Do Nothing</button>
-                        </div>
-                    )}
-                    {decisionMade && (
-                        <div className="consequences">
-                            <h3>Consequences</h3>
-                            <p>{consequences}</p>
-                        </div>
-                    )}
-                    <div className="company-impact">
-                        <h3>Overall Impact on the Company</h3>
-                        <p>
-                            The virus can potentially spread to multiple systems within the company, leading to widespread disruption. 
-                            Sensitive data may be compromised, resulting in financial loss, legal consequences, and damage to the company's reputation. 
-                            The company may need to invest significant resources in recovery and strengthening security measures to prevent future attacks.
-                        </p>
-                    </div>
-                </div>
-            )}
+const Modal = ({ onClose, title, children }) => (
+  <Overlay>
+    <ModalContent>
+      <h2>{title}</h2>
+      <div>{children}</div>
+      <Button onClick={onClose}>Close</Button>
+    </ModalContent>
+  </Overlay>
+);
+
+const PhishingEmailSimulator = () => {
+  const [clicked, setClicked] = useState(false);
+  const [reported, setReported] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const email = {
+    from: 'no-reply@secure-update.com',
+    subject: 'Important: Update Your Account Information Immediately!',
+    body: `
+      Dear User,
+      
+      We have detected suspicious activity on your account. To ensure uninterrupted access,
+      please verify your account information by clicking on the link below immediately:
+      
+      http://fake-update-link.com/verify
+      
+      Thank you,
+      Security Team
+    `,
+  };
+
+  const sendAnalytics = async (actionType) => {
+    try {
+      await fetch('/api/record-action', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: actionType, timestamp: new Date().toISOString() })
+      });
+    } catch (error) {
+      console.error('Error sending analytics data:', error);
+    }
+  };
+
+  const handleClickLink = async (e) => {
+    e.preventDefault();
+    setClicked(true);
+    await sendAnalytics('click');
+    setShowModal(true);
+  };
+
+  const handleReport = async () => {
+    setReported(true);
+    await sendAnalytics('report');
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleBack = () => {
+    window.history.back();
+  };
+
+  return (
+    <Container>
+      <h2>Inbox Simulation</h2>
+      <EmailBox>
+        <p><strong>From:</strong> {email.from}</p>
+        <p><strong>Subject:</strong> {email.subject}</p>
+        <hr />
+        <pre style={{ whiteSpace: 'pre-wrap' }}>{email.body}</pre>
+        <div style={{ marginTop: '1rem' }}>
+          <a href="#" onClick={handleClickLink}>Click here to update now</a>
         </div>
-    );
+      </EmailBox>
+
+      {clicked && (
+        <AlertBox type="error">
+          <p>You have clicked on the link. In a real phishing scenario, this could compromise your security.</p>
+        </AlertBox>
+      )}
+
+      {!reported && (
+        <div>
+          <Button onClick={handleReport}>Report Phishing</Button>
+          <Button onClick={() => alert('This is a suspicious link!')}>Check Link</Button>
+          <Button onClick={() => alert('This email looks suspicious!')}>Mark as Suspicious</Button>
+        </div>
+      )}
+
+      {reported && (
+        <AlertBox type="success">
+          <p>Thank you for reporting. Your action helps improve cybersecurity awareness!</p>
+        </AlertBox>
+      )}
+
+      {showModal && (
+        <Modal title="Cybersecurity Training Feedback" onClose={handleCloseModal}>
+          <p>
+            The email you encountered exhibited several red flags commonly found in phishing attempts:
+          </p>
+          <ul>
+            <li>Urgent language that prompts immediate action.</li>
+            <li>Suspicious sender address that does not match the organization.</li>
+            <li>Embedded links that may lead to fake websites.</li>
+          </ul>
+          <p>
+            To learn more about identifying phishing emails and protecting your information, please visit our&nbsp;
+            <a href="https://consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams#:~:text=Phishing%20emails%20and%20text%20messages,credit%20card%20or%20utility%20company." target="_blank" rel="noopener noreferrer">
+              educational resources page
+            </a>.
+          </p>
+        </Modal>
+      )}
+
+      <Button onClick={handleBack}>Back</Button>
+    </Container>
+  );
 };
 
-export default PhishingSimulation;
+export default PhishingEmailSimulator;

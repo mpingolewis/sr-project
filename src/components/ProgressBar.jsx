@@ -1,12 +1,17 @@
-import React from 'react';
-import './ProgressBar.css';
+import React from "react";
 
 const ProgressBar = ({ progress }) => {
-    return (
-        <div className="progress-bar-container">
-            <div className="progress-bar" style={{ width: `${progress}%` }}></div>
-        </div>
-    );
+  return (
+    <section className="progress-section">
+      <div className="progress-info">
+        <p>Your Progress:</p>
+        <p className="progress-value">{progress}%</p>
+      </div>
+      <div className="progress-bar">
+        <div className="progress-fill" style={{ width: `${progress}%` }}></div>
+      </div>
+    </section>
+  );
 };
 
 export default ProgressBar;

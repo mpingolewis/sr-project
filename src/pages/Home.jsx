@@ -1,19 +1,9 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles.css";
-import { useTrainingContext } from "../hooks/useTrainingContext.js";
-import ProgressBar from "../components/ProgressBar"; // Import the ProgressBar component
+import "../style.css"; // Ensure you have updated styles
 
 const Home = () => {
   const navigate = useNavigate();
-  const ctx = useTrainingContext();
-  console.log("🧪 Context inside Home:", ctx); // <== Add this line
-
-  const { completedLessons = 0, totalLessons = 1 } = ctx || {};
-
-  const progress = totalLessons
-    ? ((completedLessons / totalLessons) * 100).toFixed(0)
-    : 0;
 
   const handleLogout = () => {
     navigate("/");
@@ -30,10 +20,12 @@ const Home = () => {
         <ul>
           <li><Link to="/home">Home</Link></li>
           <li><Link to="/start-training">Start Training</Link></li>
+          <li><Link to="/Course">Course</Link></li>
           <li><Link to="/view-tasks">View Tasks</Link></li>
           <li><Link to="/track-progress">Track Progress</Link></li>
           <li><Link to="/simulation-module">Simulation Module</Link></li>
           <li><Link to="/feedback-support">Feedback & Support</Link></li>
+         
         </ul>
       </nav>
 
@@ -45,8 +37,7 @@ const Home = () => {
 
         <section className="progress-section">
           <h3>Your Progress:</h3>
-          <ProgressBar progress={progress} /> {/* Add the ProgressBar component */}
-          <p>{progress}%</p>
+          <p>0%</p>
         </section>
       </main>
 
@@ -55,9 +46,7 @@ const Home = () => {
           <li><Link to="/privacy-policy">Privacy Policy</Link></li>
           <li><Link to="/terms-of-service">Terms of Service</Link></li>
           <li><Link to="/contact-us">Contact Us</Link></li>
-          <li>
-            <button onClick={handleLogout} className="logout-btn">Log Out</button>
-          </li>
+          <li><Link to="/">Log Out</Link></li>
         </ul>
       </footer>
     </div>

@@ -1,17 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'; // ✅ THIS IS CRITICAL
-import App from './App';
-import { TrainingProvider } from './context/TrainingContext';
+import { BrowserRouter } from 'react-router-dom'; // Import for routing
+import App from './App'; // Import your App component
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
+const root = ReactDOM.createRoot(document.getElementById('root')); // Target root div from index.html
 root.render(
-  <React.StrictMode>
-    <BrowserRouter> {/* ✅ Provides routing context to all children */}
-      <TrainingProvider>
-        <App /> {/* ✅ Now everything (including <Routes>) has routing */}
-      </TrainingProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter> 
+    <App />
+  </BrowserRouter>
 );

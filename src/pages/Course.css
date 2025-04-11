@@ -1,0 +1,43 @@
+.course-page {
+    font-family: Arial, sans-serif;
+    padding: 5vw;
+  }
+  
+  .course-header {
+    background-color: #000000;
+    padding: 5vw;
+    border-bottom: 1px solid #000000;
+  }
+  
+  .course-header h1 {
+    margin: 0;
+  }
+  
+  .course-description, .course-content, .course-enrollment {
+    margin: 5vh 0;
+  }
+  
+  .course-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .course-content li {
+    background-color: #000000;
+    margin: 5vh 0;
+    padding: 5vw;
+    border-radius: 5px;
+  }
+  
+  .enroll-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .enroll-button:hover {
+    background-color: #0056b3;
+  }

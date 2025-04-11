@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles.css"; // Ensure you have updated styles
+import "../style.css"; // Ensure you have updated styles
 
 const users = [
   { username: "user1", password: "password1" },

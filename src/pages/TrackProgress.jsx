@@ -1,28 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import TaskList from './TaskList';
+import Progress from './Progress';
 
-const TrackProgress = () => {
-  const progress = 60; // Progress percentage
+const TaskManager = () => {
+  const [tasks, setTasks] = useState([]);
+  const [currentTask, setCurrentTask] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/tasks')
+      .then(response => response.json())
+      .then(data => {
+        setTasks(data.tasks);
+        setCurrentTask(data.tasks.find(task => !task.completed) || null);
+      });
+  }, []);
+
+  const handleTaskCompletion = (taskId) => {
+    fetch(`/api/tasks/${taskId}/complete`, { method: 'POST' })
+      .then(response => response.json())
+      .then(data => {
+        setTasks(data.tasks);
+        setCurrentTask(data.tasks.find(task => !task.completed) || null);
+      });
+  };
 
   return (
-    <div className="container">
-      {/* Header Section */}
-      <header className="header">
-        <h1>Track Progress</h1>
-        <p>Monitor your progress in the cyber security training program.</p>
-      </header>
-
-      {/* Content Section */}
-      <section className="content">
-        <h2>Progress Overview</h2>
-        <div className="progress-bar">
-          <div className="progress-fill" style={{ width: `${progress}%` }}></div>
-        </div>
-        <p>You have completed {progress}% of the training.</p>
-        <Link to="/home" className="btn">Back to Home</Link>
-      </section>
+    <div>
+      <h1>Cybersecurity Training Task Manager</h1>
+      <Progress currentTask={currentTask} />
+      <TaskList tasks={tasks} onTaskComplete={handleTaskCompletion} />
     </div>
   );
 };
 
-export default TrackProgress;
+export default TaskManager;
