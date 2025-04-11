@@ -1,0 +1,135 @@
+/**.simulation-container {
+    font-family: 'Arial, sans-serif';
+    text-align: center;
+    padding: 50px;
+    background-color: #000000;
+}
+
+.form-container {
+    margin-top: 20px;
+    border: 2px solid #333;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.virus-spread-container {
+    margin-top: 50px;
+}
+
+.network-diagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.employee {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    animation: spread 2s ease-in-out;
+    cursor: pointer;
+    transition: transform 0.3s;
+    background-color: #ccc;
+}
+
+.employee:hover {
+    transform: scale(1.1);
+}
+
+.employee p {
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+}
+
+.infected {
+    background-color: red;
+}
+
+.decision-points {
+    margin-top: 20px;
+}
+
+.decision-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.decision-button:hover {
+    background-color: #0056b3;
+}
+
+.consequences {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.company-impact {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@keyframes spread {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
