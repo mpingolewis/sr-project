@@ -251,3 +251,96 @@ progress::-webkit-progress-value {
 .btn-next:hover:not(:disabled) {
   background-color: #0056b3;
 }
+
+/* .container, .header, etc. remain as you have them */
+
+/* ——— NAVBAR ——— */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 0.75rem 2rem;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00bfae;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #00e0c0;
+}
+
+/* ——— MAIN CONTENT ——— */
+.main-content {
+  padding: 2rem;
+}
+
+.intro-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.intro-section p {
+  color: #555;
+}
+
+/* ——— PROGRESS SECTION ——— */
+.progress-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.progress-section h3 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* ——— FOOTER ——— */
+.footer {
+  background-color: #222;
+  padding: 1rem 2rem;
+  margin-top: 3rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-links a,
+.logout-btn {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover,
+.logout-btn:hover {
+  color: white;
+}
