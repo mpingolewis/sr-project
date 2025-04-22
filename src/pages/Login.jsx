@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../style.css"; // Ensure you have updated styles
+import "../styles.css"; // Make sure your styles are updated
 
 const users = [
   { username: "user1", password: "password1" },
@@ -11,15 +11,19 @@ const users = [
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const user = users.find((user) => user.username === username && user.password === password);
+    const user = users.find(
+      (user) => user.username === username && user.password === password
+    );
     if (user) {
-      navigate("/home");
+      localStorage.setItem("loggedInUser", user.username); // ✅ Save login info
+      navigate("/home"); // ✅ Go to home screen
     } else {
-      alert("Invalid credentials");
+      setError("Invalid username or password");
     }
   };
 
@@ -37,6 +41,7 @@ const Login = () => {
             required
           />
         </div>
+
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input
@@ -47,6 +52,9 @@ const Login = () => {
             required
           />
         </div>
+
+        {error && <p className="error-message">{error}</p>}
+
         <button type="submit" className="btn">Login</button>
       </form>
     </div>

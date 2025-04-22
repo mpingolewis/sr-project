@@ -1,0 +1,95 @@
+.feedback-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feedback-container h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .feedback-container p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .feedback-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .feedback-form input,
+  .feedback-form select,
+  .feedback-form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .feedback-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .btn-submit {
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #00bfae;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #009e91;
+  }
+  
+  .thank-you {
+    text-align: center;
+    color: #333;
+  }
+
+  .feedback-form input[type="file"] {
+    margin-top: 6px;
+    font-size: 0.95rem;
+  }
+  
+  .feedback-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .btn-home {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-home:hover {
+    background-color: #333;
+  }
+  

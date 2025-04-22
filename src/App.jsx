@@ -7,22 +7,22 @@ import StartTraining from "./pages/StartTraining";
 import SimulationModule from "./pages/SimulationModule";
 import FeedbackSupport from "./pages/FeedbackSupport";
 import ViewTasks from "./pages/ViewTasks";
-import Phishing from "./pages/Phishing";
-import Course from "./pages/Course";
+import PhishingSimulation from "./pages/Phishing";
+import PasswordCracking from './pages/PasswordCracking';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} /> {/* Removed props */}
         <Route path="/track-progress" element={<TrackProgress />} />
-        <Route path="/start-training" element={<StartTraining />} />
+        <Route path="/start-training" element={<StartTraining />} /> {/* Removed props */}
         <Route path="/simulation-module" element={<SimulationModule />} />
         <Route path="/feedback-support" element={<FeedbackSupport />} />
         <Route path="/view-tasks" element={<ViewTasks />} />
-        <Route path="/phishing" element={<Phishing />} />
-        <Route path="/Course" element={<Course />} />
+        <Route path="/phishing" element={<PhishingSimulation />} />
+        <Route path="/password-simulator" element={<PasswordCracking />} />
       </Routes>
     </Router>
   );

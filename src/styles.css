@@ -1,253 +1,346 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.header {
-  text-align: center;
-  background-color: #282c34;
-  color: white;
-  padding: 20px 0;
-}
-
-.navigation {
-  background-color: #333;
-  padding: 10px 0;
-}
-
-.navigation ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.navigation li {
-  display: inline;
-  margin: 0 15px;
-}
-
-.navigation a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.main-content {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.intro-section {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.progress-section {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.footer {
-  background-color: #333;
-  color: white;
-  padding: 10px 0;
-  text-align: center;
-}
-
-.footer ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer li {
-  display: inline;
-  margin: 0 15px;
-}
-
-.footer a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Updated button styles with animations */
-
-.btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #000; /* Changed to black */
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-.btn:hover {
-  background-color: #333; /* Darker shade of black */
-  transform: scale(1.1);
-}
-
-.btn-exit {
-  background-color: #dc3545;
-}
-
-.btn-exit:hover {
-  background-color: #c82333;
-  transform: scale(1.1);
-}
-
-/* New styles for login page */
-
-.login-container {
-  max-width: 500px; /* Increased width */
-  width: 100%;
-  margin: 0 auto; /* Centered horizontally */
-  padding: 40px; /* Increased padding */
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #fff;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.login-container h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.form-group input[type="text"],
-.form-group input[type="password"] {
-  font-family: 'Courier New', Courier, monospace;
-  letter-spacing: 1px;
-}
-
-.form-group input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-.barmarker-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-.barmarker {
-  flex: 1;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #888;
-}
-
-.barmarker.done {
-  font-weight: bold;
-  color: #00bfae;
-}
-
-.progress {
-  width: 100%;
-  height: 20px;
-  border-radius: 5px;
-  overflow: hidden;
-  appearance: none;
-}
-
-progress::-webkit-progress-bar {
-  background-color: #eee;
-}
-
-progress::-webkit-progress-value {
-  background-color: #00bfae;
-  transition: width 0.3s ease;
-}
-
-.training-container {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.lesson-card {
-  margin: 2rem 0;
-}
-
-.lesson-card h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.lesson-card p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #555;
-}
-
-.training-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-
-.btn {
-  padding: 12px 24px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.btn-next {
-  background-color: #007bff;
-  color: white;
-}
-
-.btn-next:hover:not(:disabled) {
-  background-color: #0056b3;
-}
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .header {
+    text-align: center;
+    background-color: #282c34;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  .navigation {
+    background-color: #333;
+    padding: 10px 0;
+  }
+  
+  .navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .navigation li {
+    display: inline;
+    margin: 0 15px;
+  }
+  
+  .navigation a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .intro-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .progress-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer li {
+    display: inline;
+    margin: 0 15px;
+  }
+  
+  .footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Updated button styles with animations */
+  
+  .btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #000; /* Changed to black */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .btn:hover {
+    background-color: #333; /* Darker shade of black */
+    transform: scale(1.1);
+  }
+  
+  .btn-exit {
+    background-color: #dc3545;
+  }
+  
+  .btn-exit:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+  }
+  
+  /* New styles for login page */
+  
+  .login-container {
+    max-width: 500px; /* Increased width */
+    width: 100%;
+    margin: 0 auto; /* Centered horizontally */
+    padding: 40px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="password"] {
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 1px;
+  }
+  
+  .form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .barmarker-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .barmarker {
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  .barmarker.done {
+    font-weight: bold;
+    color: #00bfae;
+  }
+  
+  .progress {
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    appearance: none;
+  }
+  
+  progress::-webkit-progress-bar {
+    background-color: #eee;
+  }
+  
+  progress::-webkit-progress-value {
+    background-color: #00bfae;
+    transition: width 0.3s ease;
+  }
+  
+  .training-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .lesson-card {
+    margin: 2rem 0;
+  }
+  
+  .lesson-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .lesson-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .training-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .btn-next {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-next:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  /* .container, .header, etc. remain as you have them */
+  
+  /* ——— NAVBAR ——— */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 0.75rem 2rem;
+  }
+  
+  .nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00bfae;
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #00e0c0;
+  }
+  
+  /* ——— MAIN CONTENT ——— */
+  .main-content {
+    padding: 2rem;
+  }
+  
+  .intro-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+  
+  .intro-section p {
+    color: #555;
+  }
+  
+  /* ——— PROGRESS SECTION ——— */
+  .progress-section {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .progress-section h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  /* ——— FOOTER ——— */
+  .footer {
+    background-color: #222;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer-links a,
+  .logout-btn {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .footer-links a:hover,
+  .logout-btn:hover {
+    color: white;
+  }
