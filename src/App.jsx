@@ -8,6 +8,9 @@ import SimulationModule from "./pages/SimulationModule";
 import FeedbackSupport from "./pages/FeedbackSupport";
 import ViewTasks from "./pages/ViewTasks";
 import PhishingSimulation from "./pages/Phishing";
+import PasswordCracking from './pages/PasswordCracking';
+import VirusSpreadSimulation from './pages/VirusSpreadSimulation';
+
 
 const App = () => {
   return (
@@ -21,6 +24,8 @@ const App = () => {
         <Route path="/feedback-support" element={<FeedbackSupport />} />
         <Route path="/view-tasks" element={<ViewTasks />} />
         <Route path="/phishing" element={<PhishingSimulation />} />
+        <Route path="/password-cracking" element={<PasswordCracking />} />
+        <Route path="/virus-spread-simulation" element={<VirusSpreadSimulation />} />
       </Routes>
     </Router>
   );

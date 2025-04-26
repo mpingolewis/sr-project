@@ -6,31 +6,27 @@ const ViewTasks = () => {
   return (
     <><div className="course-page">
       <header className="course-header">
-        <h1>Course Title</h1>
-        <p>Instructor: John Doe</p>
+        <h1>CyberSecurity Training Awareness: Courses</h1>
       </header>
-      <section className="course-description">
-        <h2>Course Description</h2>
-        <p>This course will teach you the fundamentals of web development using React. You will learn how to build dynamic and responsive web applications.</p>
-      </section>
+      
       <section className="course-content">
         <h2>Course Content</h2>
         <ul>
-          <li>Chapter 1:Introduction to Cybersecurity</li>
+          <li>Chapter 1: Introduction to Cybersecurity</li>
           <li>Chapter 2: Social Engineering & Phishing Attacks</li>
           <li>Chapter 3: Password Security & Authentication</li>
-          <li>Chapter 4:  </li>
-          <li>Conditional Rendering</li>
-          <li>Lists and Keys</li>
-          <li>Forms</li>
-          <li>Lifting State Up</li>
-          <li>Composition vs Inheritance</li>
-          <li>React Router</li>
+          <li>Chapter 4: Safe Browsing & Internet Usage</li>
+          <li>Chapter 5: Secure Work Practices</li>
+          <li>Chapter 6: Malware & Ransomware Prevention</li>
+          <li>Chapter 7: Secure Use of Email & Messaging</li>
+          <li>Chapter 8: Insider Threats & Data Protection</li>
         </ul>
       </section>
       <section className="course-enrollment">
-        <h2>Enroll Now</h2>
-        <button className="enroll-button">Enroll</button>
+        <h2>Start Training</h2>
+        <Link to="/start-training">
+        <button className="enroll-button">Start Training</button>
+        </Link>
       </section>
     </div><div><Link to="/home" className="btn">Back to Home</Link> {/* Added link */}</div></>
    
@@ -39,3 +35,4 @@ const ViewTasks = () => {
 };
 
 export default ViewTasks;
+  

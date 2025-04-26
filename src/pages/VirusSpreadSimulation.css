@@ -1,0 +1,62 @@
+.simulation-wrapper {
+    text-align: center;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .grid {
+    display: inline-block;
+    margin: 20px auto;
+    border: 2px solid #333;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .cell {
+    width: 40px;
+    height: 40px;
+    margin: 1px;
+    border-radius: 4px;
+    background-color: #d3d3d3;
+    transition: background-color 0.5s ease;
+  }
+  
+  .cell.clean {
+    background-color: #e0f7fa;
+  }
+  
+  .cell.infected {
+    background-color: #ff5252;
+    animation: pulse 1s infinite;
+  }
+  
+  .start-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-btn:hover {
+    background-color: #1565c0;
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 82, 82, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); }
+  }
+
+  .button-group {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
